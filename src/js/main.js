@@ -1,16 +1,63 @@
-var counter1 = 10;
+var elemento = document.getElementById("textArea1").value = "";
 
-function escribiendo(event) {
-    if (counter1 >= 0) {
-        var letra = event.which || event.keyCode;
-        console.log(letra);
-        mensaje = "TODO OK, por el momento..." + counter1;
+function limita(elEvento, maximoCaracteres) {
+    elemento = document.getElementById("textArea1");
 
-        counter1 --;
-    } else {
-        mensaje = "MAX ADMITIDO ALCANZADO" + counter1;
+    // Obtener la tecla pulsada
+    var evento = elEvento || window.event;
+    var codigoCaracter = evento.charCode || evento.keyCode;
+    // Permitir utilizar las teclas con flecha horizontal
+    if (codigoCaracter == 37 || codigoCaracter == 39) {
+        return true;
     }
 
-    document.getElementById("alert1").innerHTML = mensaje ;
+    // Permitir borrar con la tecla Backspace y con la tecla Supr.
+    if (codigoCaracter == 8 || codigoCaracter == 46) {
+        return true;
+    }
+    else return elemento.value.length < maximoCaracteres;
 }
 
+function actualizaInfo(maximoCaracteres) {
+    elemento = document.getElementById("textArea1");
+    var info = document.getElementById("alert1");
+
+    if (elemento.value.length >= maximoCaracteres) {
+        info.innerHTML = "Máximo " + maximoCaracteres + " caracteres";
+    }
+    else {
+        info.innerHTML = "Puedes escribir hasta " + (maximoCaracteres - elemento.value.length) + " caracteres adicionales";
+    }
+}
+
+
+function hayAlgo(texto) {
+
+    return texto != "";
+
+}
+function compruebaVacios(texto) {
+    //TODO
+}
+
+function compruebaTexto(texto) {
+    var regEx = /[a-zA-Z0-9_]/;
+
+    if (regEx.test(texto)) {
+        console.log("es texto y numeros");
+        return true;
+    }
+}
+
+
+function valida() {
+
+    texto = document.getElementById("textArea2").value;
+
+    if (hayAlgo(texto) && compruebaTexto(texto)) {
+        console.log("hay algo");
+    } else {
+        console.log("no hay nada");
+    }
+
+}
