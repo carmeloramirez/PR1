@@ -1,8 +1,10 @@
 var elemento = document.getElementById("textArea1").value = "";
+var texto = document.getElementById("textArea2").value = "";
 
-function limita(elEvento, maximoCaracteres) {
-    elemento = document.getElementById("textArea1");
+function limita(elEvento, maximoCaracteres, id) {
 
+elemento = document.getElementById(id).value;
+console.log("entro en limita");
     // Obtener la tecla pulsada
     var evento = elEvento || window.event;
     var codigoCaracter = evento.charCode || evento.keyCode;
@@ -15,12 +17,13 @@ function limita(elEvento, maximoCaracteres) {
     if (codigoCaracter == 8 || codigoCaracter == 46) {
         return true;
     }
-    else return elemento.value.length < maximoCaracteres;
+    else return document.getElementById(id).value.length < maximoCaracteres;
 }
 
-function actualizaInfo(maximoCaracteres) {
-    elemento = document.getElementById("textArea1");
-    var info = document.getElementById("alert1");
+
+function actualizaInfo(maximoCaracteres,id,idAlert) {
+    elemento = document.getElementById(id);
+    var info = document.getElementById(idAlert);
 
     if (elemento.value.length >= maximoCaracteres) {
         info.innerHTML = "Máximo " + maximoCaracteres + " caracteres";
@@ -51,7 +54,7 @@ function compruebaTexto(texto) {
 
 
 function valida() {
-
+    console.log("hola");
     texto = document.getElementById("textArea2").value;
 
     if (hayAlgo(texto) && compruebaTexto(texto)) {
@@ -60,4 +63,12 @@ function valida() {
         console.log("no hay nada");
     }
 
+}
+
+function muestra() {
+    if (document.getElementById("checkBox").value = "checked") {
+        document.getElementById("checkButton").style = "display : inline";
+    } else {
+        document.getElementById("checkButton").style = "display : none"
+    }
 }
