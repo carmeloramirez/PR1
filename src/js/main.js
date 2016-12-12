@@ -39,9 +39,6 @@ function hayAlgo(texto) {
     return texto != "";
 
 }
-function compruebaVacios(texto) {
-    //TODO
-}
 
 function compruebaTexto(texto) {
     var regEx = /[a-zA-Z0-9_]/;
@@ -66,9 +63,15 @@ function valida() {
 }
 
 function muestra() {
-    if (document.getElementById("checkBox").value = "checked") {
-        document.getElementById("checkButton").style = "display : inline";
+    var elemento = document.getElementById("checkBox");
+    var boton = document.getElementById("checkButton");
+    console.log(elemento.value);
+    if (elemento.checked) {
+        boton.style.display = "inline";
+        mensaje = "Ya puedes ver el botón";
     } else {
-        document.getElementById("checkButton").style = "display : none"
+        boton.style.display = "none"
+        mensaje = "Hay que darle al check para que muestre el boton";
     }
+    document.getElementById('alert3').innerHTML = mensaje;
 }
