@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -58,7 +59,7 @@
                     <legend>EJERCICIO 2</legend>
                     <!-- Textarea -->
                     <div class="form-group">
-                        <label class="control-label" for="textArea2">Ejercicio 1</label>
+                        <label class="control-label" for="textArea2">Ejercicio 2</label>
                         <p>Ejercicio 02.
                             Se trata de forzar al usuario a introducir un valor en un cuadro de texto o textarea en los
                             que sea obligatorio.
@@ -97,17 +98,110 @@
                             casilla de aceptación de términos legales.
                             Ayuda: El objetivo se consigue gracias a las hojas de estilo y su propiedad display. </p>
                         <div class="col-md-12">
-                            <input id="checkBox" onclick="muestra()" type="checkbox" > Acepta términos
+                            <input id="checkBox" onclick="muestra()" type="checkbox"> Acepta términos <button id="checkButton" class=" btn btn-default btn" style="display: none;">ENVIAR
+                        </button>
+                            <div class="alert alert-success" id="alert3">Hay que darle al check para que muestre el
+                                boton
+                            </div>
 
                         </div>
-                        <button id="checkButton"  class="btn btn-default btn" style="display: none;">ENVIAR
-                        </button>
-                        <div class="alert alert-success" id="alert3" >Hay que darle al check para que muestre el boton</div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </fieldset>
+</div>
+<hr/>
+<div class="container">
+    <legend>EJERCICIO 4</legend>
+    <p>Ejercicio 04.<br>Encontrar la expresión regular que represente los diferentes formatos de números de teléfono
+        representados en la siguiente tabla.</p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Telefono</th>
+            <th>Regex</th>
+            <th>Formato</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>
+                900900900
+            </td>
+            <td>
+
+            </td>
+            <td>
+                9 cifras seguidas
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                900-900-900
+            </td>
+            <td>
+
+            </td>
+            <td>
+                9 cifras agrupadas de 3 en 3 y separadas por guiones
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                900 900900
+            </td>
+            <td>
+
+            </td>
+            <td>
+                9 cifras, las 3 primeras separadas por un espacio
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                900 90 09 00
+            </td>
+            <td>
+
+            </td>
+            <td>
+                9 cifras, las 3 primeras separadas por un espacio, las siguientes agrupadas de 2 en 2
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                (900) 900900
+            </td>
+            <td>
+
+            </td>
+            <td>
+                9 cifras, las 3 primeras encerradas por paréntesis y un espacio de separación respecto del resto
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                +34 900900900
+            </td>
+            <td>
+
+            </td>
+            <td>
+                Prefijo internacional (+ seguido de 2 o 3 cifras), espacio en blanco y 9 cifras consecutivas
+
+            </td>
+        </tr>
+
+    </table>
+
 </div>
 <!-- Form Name -->
 
