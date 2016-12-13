@@ -3,17 +3,13 @@ var texto = document.getElementById("textArea2").value = "";
 
 function limita(eventoRecibido, max, id) {
 
-elemento = document.getElementById(id).value;
-
-    // Obtener la tecla pulsada
+    elemento = document.getElementById(id).value;
     var evento = eventoRecibido || window.event;
     var codigoCaracter = evento.charCode || evento.keyCode;
-    // Permitir utilizar las teclas con flecha horizontal
     if (codigoCaracter == 37 || codigoCaracter == 39) {
         return true;
     }
 
-    // Permitir borrar con la tecla Backspace y con la tecla Supr.
     if (codigoCaracter == 8 || codigoCaracter == 46) {
         return true;
     }
@@ -21,7 +17,7 @@ elemento = document.getElementById(id).value;
 }
 
 
-function actualizaInfo(maximoCaracteres,id,idAlert) {
+function actualizaInfo(maximoCaracteres, id, idAlert) {
     elemento = document.getElementById(id);
     var info = document.getElementById(idAlert);
 
@@ -35,20 +31,16 @@ function actualizaInfo(maximoCaracteres,id,idAlert) {
 
 
 function hayAlgo(texto) {
-
     return texto != "";
-
 }
 
 function compruebaTexto(texto) {
     var regEx = /[a-zA-Z0-9_]/;
-
     if (regEx.test(texto)) {
         document.getElementById('alert2').innerHTML = "Es texto y numeros";
         return true;
     }
 }
-
 
 function valida() {
     texto = document.getElementById("textArea2").value;
@@ -59,7 +51,6 @@ function valida() {
         mensaje = "NO VALIDO .... (comprueba formato, no debe estar en blanco y contener caracteres de texto o numeros)";
     }
     document.getElementById('alert2').innerHTML = mensaje;
-
 }
 
 function muestra() {
