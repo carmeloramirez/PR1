@@ -1,12 +1,12 @@
 var elemento = document.getElementById("textArea1").value = "";
 var texto = document.getElementById("textArea2").value = "";
 
-function limita(elEvento, maximoCaracteres, id) {
+function limita(eventoRecibido, max, id) {
 
 elemento = document.getElementById(id).value;
-console.log("entro en limita");
+
     // Obtener la tecla pulsada
-    var evento = elEvento || window.event;
+    var evento = eventoRecibido || window.event;
     var codigoCaracter = evento.charCode || evento.keyCode;
     // Permitir utilizar las teclas con flecha horizontal
     if (codigoCaracter == 37 || codigoCaracter == 39) {
@@ -17,7 +17,7 @@ console.log("entro en limita");
     if (codigoCaracter == 8 || codigoCaracter == 46) {
         return true;
     }
-    else return document.getElementById(id).value.length < maximoCaracteres;
+    else return document.getElementById(id).value.length < max;
 }
 
 
@@ -29,7 +29,7 @@ function actualizaInfo(maximoCaracteres,id,idAlert) {
         info.innerHTML = "Máximo " + maximoCaracteres + " caracteres";
     }
     else {
-        info.innerHTML = "Puedes escribir hasta " + (maximoCaracteres - elemento.value.length) + " caracteres adicionales";
+        info.innerHTML = "Caracteres disponibles:  " + (maximoCaracteres - elemento.value.length);
     }
 }
 
@@ -44,21 +44,21 @@ function compruebaTexto(texto) {
     var regEx = /[a-zA-Z0-9_]/;
 
     if (regEx.test(texto)) {
-        console.log("es texto y numeros");
+        document.getElementById('alert2').innerHTML = "Es texto y numeros";
         return true;
     }
 }
 
 
 function valida() {
-    console.log("hola");
     texto = document.getElementById("textArea2").value;
-
+    mensaje = document.getElementById("textArea2").innerHTML;
     if (hayAlgo(texto) && compruebaTexto(texto)) {
-        console.log("hay algo");
+        mensaje = "VALIDO... validaciones comprobadas";
     } else {
-        console.log("no hay nada");
+        mensaje = "NO VALIDO .... (comprueba formato, no debe estar en blanco y contener caracteres de texto o numeros)";
     }
+    document.getElementById('alert2').innerHTML = mensaje;
 
 }
 

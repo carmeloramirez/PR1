@@ -9,7 +9,7 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -98,8 +98,9 @@
                             casilla de aceptación de términos legales.
                             Ayuda: El objetivo se consigue gracias a las hojas de estilo y su propiedad display. </p>
                         <div class="col-md-12">
-                            <input id="checkBox" onclick="muestra()" type="checkbox"> Acepta términos <button id="checkButton" class=" btn btn-default btn" style="display: none;">ENVIAR
-                        </button>
+                            <input id="checkBox" onclick="muestra()" type="checkbox"> Acepta términos
+                            <button id="checkButton" class=" btn btn-default btn" style="display: none;">ENVIAR
+                            </button>
                             <div class="alert alert-success" id="alert3">Hay que darle al check para que muestre el
                                 boton
                             </div>
@@ -132,7 +133,7 @@
                 900900900
             </td>
             <td>
-
+                \b[0-9]{9}
             </td>
             <td>
                 9 cifras seguidas
@@ -144,7 +145,7 @@
                 900-900-900
             </td>
             <td>
-
+                \b(([0-9]{3})[-]){2}(([0-9]{3}))\b
             </td>
             <td>
                 9 cifras agrupadas de 3 en 3 y separadas por guiones
@@ -168,7 +169,7 @@
                 900 90 09 00
             </td>
             <td>
-
+                (([0-9]{3})[ ])((([0-9]{2})[ ]){2})([0-9]{2})\b
             </td>
             <td>
                 9 cifras, las 3 primeras separadas por un espacio, las siguientes agrupadas de 2 en 2
@@ -180,7 +181,7 @@
                 (900) 900900
             </td>
             <td>
-
+                [(]([0-9]{3})[)][ ]([0-9]{6})
             </td>
             <td>
                 9 cifras, las 3 primeras encerradas por paréntesis y un espacio de separación respecto del resto
@@ -192,7 +193,7 @@
                 +34 900900900
             </td>
             <td>
-
+                [+][0-9]{2}[ ][0-9]{9}
             </td>
             <td>
                 Prefijo internacional (+ seguido de 2 o 3 cifras), espacio en blanco y 9 cifras consecutivas
